@@ -3,3 +3,5 @@
 Usage: 
 
     Rscript qq.plink.R plink.assoc "some title"
+
+  Requires that column with P values is labeled as `P`.
