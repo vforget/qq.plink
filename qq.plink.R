@@ -7,13 +7,15 @@ args <- commandArgs(trailingOnly = TRUE)
 
 plink.f = args[1]
 title = args[2]
+qq.f = paste(plink.f, ".qq.png", sep="")
 
 message("Input file = ", plink.f)
 message("Title = ", title)
+message("Output file = ", qq.f)
+
 message("Loading Data")
 
-qq.f = paste(plink.f, ".qq.png", sep="")
-d <- read.table(plink.f, header=T)
+d <- readRDS(plink.f)
 do <- d
 
 obs <- sort(d$P)
