@@ -19,7 +19,7 @@ d <- tryCatch({ readRDS(plink.f) },
               warning = function(war) { read.table(plink.f, header=TRUE) },
               error = function(err) { read.table(plink.f, header=TRUE) },
               finally = {
-                  message("FINALLY")
+                  message("")
               }
               )
 
