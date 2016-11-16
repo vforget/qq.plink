@@ -13,9 +13,16 @@ message("Input file = ", plink.f)
 message("Title = ", title)
 message("Output file = ", qq.f)
 
-message("Loading Data")
+message("Reading data ...")
 
-d <- readRDS(plink.f)
+d <- tryCatch({ readRDS(plink.f) },
+              warning = function(war) { read.table(plink.f, header=TRUE) },
+              error = function(err) { read.table(plink.f, header=TRUE) },
+              finally = {
+                  message("FINALLY")
+              }
+              )
+
 do <- d
 
 obs <- sort(d$P)
